@@ -7,4 +7,4 @@ myFlix-client
         - sCSS;
         - JavaScript;
         - MongoDB.
-        - React.js(parcel)
+        - React.js(parcel
