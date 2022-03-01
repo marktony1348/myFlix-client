@@ -1,5 +1,10 @@
 import React from 'react';
+import axios from 'axios';
 import PropTypes from 'prop-types';
+
+// react bootstrap ui
+import { Card, Button } from 'react-bootstrap';
+
 import './movie-card.scss';
 
 export class MovieCard extends React.Component {
@@ -7,25 +12,35 @@ export class MovieCard extends React.Component {
     const { movie, onMovieClick } = this.props;
 
     return (
-      <div onClick={() => onMovieClick(movie)} className="movie-card">{movie.Title}</div>
+      <Card>
+        <Card.Img variant="top" src={movie.ImagePath} />
+        <Card.Body>
+          <Card.Title>{movie.Title}</Card.Title>
+          <Card.Text>{movie.Description}</Card.Text>
+          <Button  onClick={() => onMovieClick(movie)} variant="outline-dark">Open</Button>
+        </Card.Body>
+      </Card>
     );
   }
 }
 
 MovieCard.propTypes = {
     movie: PropTypes.shape({
-        Title: PropTypes.string.isRequired,
-        Description: PropTypes.string.isRequired,
-        Imageurl: PropTypes.string.isRequired,
-        Genre: PropTypes.shape({
-            Name: PropTypes.string.isRequired,
-            Description: PropTypes.string.isRequired
-        }),
-        Director: PropTypes.shape({
-            Name: PropTypes.string.isRequired,
-            Description: PropTypes.string.isRequired
-        })
-    }).isRequired,
+      Title: PropTypes.string.isRequired,
+      Description: PropTypes.string.isRequired,
+      Imagepath: PropTypes.string.isRequired,
+      Genre: PropTypes.string.isRequired,
+      Director: PropTypes.string.isRequired
+      
+      // Director: PropTypes.shape({
+      //   Name: PropTypes.string.isRequired,
+      //   Bio: PropTypes.string.isRequired,
+      //   Birth: PropTypes.date,
+      //   Death: PropTypes.date
+      // }),
+
+      }).isRequired,
     
-    onMovieClick: PropTypes.func.isRequired
+      onMovieClick: PropTypes.func.isRequired
 };
+

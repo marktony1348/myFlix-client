@@ -1,5 +1,9 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+
+// react bootstrap ui
+import { Form, Button, Container, Row, Col, Card, CardGroup } from 'react-bootstrap';
+
 import './registration-view.scss';
 
 export function RegistrationView(props) {
@@ -18,29 +22,42 @@ export function RegistrationView(props) {
   };
 
   return (
-    <form>
-      <label>
-        Username:
-        <input type="text" value={username} onChange={e => setUsername(e.target.value)} />
-      </label> <br />
-      <br />
-      <label>
-        Password:
-        <input type="password" value={password} onChange={e => setPassword(e.target.value)} />
-      </label> <br />
-      <br />
-      <label>
-        Email:
-        <input type="email" value={email} onChange={e => setEmail(e.target.value)} />
-      </label> <br />
-      <br />
-      <label>
-        Birthday:
-        <input type="date" value={Birthday} onChange={e => setBirthday(e.target.value)} />
-      </label> <br />
-      <br />
-      <button type="submit" onClick={handleSubmit}>Submit</button>
-    </form>
+    <Container>
+      <Row>
+        <Col>
+          <CardGroup>
+            <Card>
+              <Card.Body>
+                <Card.Title> Please Register </Card.Title>
+                <form>
+                    <Form.Group controlId="formUsername">
+                        <Form.Label>Username:</Form.Label>
+                        <Form.Control type="text" onChange={e => setUsername(e.target.value)} placeholder="Enter username" />
+                    </Form.Group>
+
+                    <Form.Group controlId="formPassword">
+                        <Form.Label>Password:</Form.Label>
+                        <Form.Control type="password" onChange={e => setPassword(e.target.value)} placeholder="Enter password" />
+                    </Form.Group>
+
+                    <Form.Group controlId="formEmail">
+                        <Form.Label>Email:</Form.Label>
+                        <Form.Control type="Email" onChange={e => setPassword(e.target.value)} placeholder="Enter Email" />
+                    </Form.Group>
+
+                    <Form.Group controlId="formBirthday">
+                        <Form.Label>Birthday:</Form.Label>
+                        <Form.Control type="Date" onChange={e => setPassword(e.target.value)} placeholder="Enter Birthday" />
+                    </Form.Group>
+
+                    <Button variant="outline-dark" type="submit" onClick={handleSubmit}>Submit </Button>
+                </form>
+              </Card.Body>
+            </Card>
+          </CardGroup>
+        </Col>
+      </Row>
+    </Container>
   );
 }
 
