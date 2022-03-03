@@ -81,7 +81,7 @@ export class MainView extends React.Component {
             <Navbar.Brand >My Flix</Navbar.Brand>
                 <a href="./components/marktony-svg logo.svg"></a>
                 <Nav className="me-auto">
-                <Nav.Link href="terget_{login-view}">Logout</Nav.Link>
+                <Nav.Link href="target_{login-view}">Logout</Nav.Link>
                 </Nav>
             </Container>
             </Navbar>

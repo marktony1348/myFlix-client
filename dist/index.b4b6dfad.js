@@ -22896,7 +22896,7 @@ class MainView extends _reactDefault.default.Component {
                             /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Nav, {
                                 className: "me-auto",
                                 children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Nav.Link, {
-                                    href: "terget_{login-view}",
+                                    href: "target_{login-view}",
                                     children: "Logout"
                                 }, void 0, false, {
                                     fileName: "src/components/main-view/main-view.jsx",
