@@ -1,4 +1,6 @@
-body {
+
+
+.main-view {
   display: grid;
   justify-content: center;
   align-items: center;
@@ -8,13 +10,17 @@ body {
   box-sizing: border-box;
 }
 
-* {
-  box-sizing: border-box;
-  font-family: "Montserrat", sans-serif;
+.MainNavbar {
   background-color: #5a8aa0;
   color: #ffffff;
 }
-body {
+
+.MainNavbar2 {
+  background-color: #5a8aa0;
+  position: relative;
+  bottom: -450px;
+}
+.RegForm {
   display: grid;
   justify-content: center;
   align-items: center;
@@ -24,13 +30,12 @@ body {
   box-sizing: border-box;
 }
 
-* {
-  box-sizing: border-box;
-  font-family: "Montserrat", sans-serif;
+.RevNavbar {
   background-color: #5a8aa0;
-  color: #ffffff;
+  position: relative;
+  bottom: -450px;
 }
-body {
+.loginContainer {
   display: grid;
   justify-content: center;
   align-items: center;
@@ -40,58 +45,10 @@ body {
   box-sizing: border-box;
 }
 
-* {
-  box-sizing: border-box;
-  font-family: "Montserrat", sans-serif;
+.loginNavbar {
   background-color: #5a8aa0;
-  color: #ffffff;
-}
-body {
-  display: grid;
-  justify-content: center;
-  align-items: center;
-  height: 50vh;
-  font-family: "Montserrat", sans-serif;
-  font-size: medium;
-  box-sizing: border-box;
+  position: relative;
+  bottom: -450px;
 }
 
-* {
-  box-sizing: border-box;
-  font-family: "Montserrat", sans-serif;
-  background-color: #5a8aa0;
-  color: #ffffff;
-}
-body {
-  display: grid;
-  justify-content: center;
-  align-items: center;
-  height: 50vh;
-  font-family: "Montserrat", sans-serif;
-  font-size: medium;
-  box-sizing: border-box;
-}
-
-* {
-  box-sizing: border-box;
-  font-family: "Montserrat", sans-serif;
-  background-color: #5a8aa0;
-  color: #ffffff;
-}
-body {
-  display: grid;
-  justify-content: center;
-  align-items: center;
-  height: 50vh;
-  font-family: "Montserrat", sans-serif;
-  font-size: medium;
-  box-sizing: border-box;
-}
-
-* {
-  box-sizing: border-box;
-  font-family: "Montserrat", sans-serif;
-  background-color: #5a8aa0;
-  color: #ffffff;
-}
 /*# sourceMappingURL=index.e3f97e84.css.map */

@@ -2,8 +2,9 @@ import React from 'react';
 import axios from 'axios';
 
 
+
 // react bootstrap ui with universal container
-import { Container, Row, Col } from 'react-bootstrap';
+import { Navbar, Nav, Container, Row, Col } from 'react-bootstrap';
 
 import './main-view.scss';
 
@@ -74,23 +75,50 @@ export class MainView extends React.Component {
         if (movies.length === 0) return <div className="main-view"/>;
 
         return (
+            <div className="main-view">
+            <Navbar expand="lg" bg="#5a8aa0" className="MainNavbar">
+            <Container>
+            <Navbar.Brand >My Flix</Navbar.Brand>
+                <a href="./components/marktony-svg logo.svg"></a>
+                <Nav className="me-auto">
+                <Nav.Link href="terget_{login-view}">Logout</Nav.Link>
+                </Nav>
+            </Container>
+            </Navbar>
+    
             <Row className="main-view justify-content-md-center">
-        
             {selectedMovie
-                ? (
-                    <Col md={7}>
-                        <MovieView movie={selectedMovie} onBackClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); }} />
-                    </Col>
-                )
-                : movies.map(movie => (
-                    <Col md={3}>
-                        <MovieCard key={movie._id} movie={movie} onMovieClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); }}/>
-                    </Col>
-                ))
+              ? (
+                <Col md={8}>
+                  <MovieView movie={selectedMovie} onBackClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); }} />
+                </Col>
+              )
+              : movies.map((movie) => (
+                <Col md={3} key={movie._id}>
+                  <MovieCard
+                    movie={movie}
+                    onMovieClick={(newSelectedMovie) => {
+                      this.setSelectedMovie(newSelectedMovie);
+                    }}
+                  />
+                </Col>
+              ))        
             }
-        </Row>
-            
-        );
-    }
+            </Row>
+            <div>
+              <Navbar expand="xl" bg="#5a8aa0" className="MainNavbar2">
+              <Container>
+                  <Navbar.Brand >Copyright@2022</Navbar.Brand>
+                  <Nav className="me-auto">
+                  <Nav.Link href="#"></Nav.Link>
+                  </Nav>
+                </Container>
+              </Navbar>
+                
+            </div>
+          </div>
+         
+        );    
+      }     
 
 }

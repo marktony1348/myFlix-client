@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import axios from 'axios';
 
 // react bootstrap ui
-import { Form, Button, Container, Row, Col, Card, CardGroup } from 'react-bootstrap';
+import { Form, Button, Container, Navbar, Nav, Card } from 'react-bootstrap';
 
 import './registration-view.scss';
 
@@ -20,12 +21,19 @@ export function RegistrationView(props) {
     /* then call props on registored user(username) */
     props.onRegistration(username);
   };
-
   return (
-    <Container>
-      <Row>
-        <Col>
-          <CardGroup>
+    <div className="registration-view">
+       <Navbar expand="lg"  bg="#5a8aa0" className="MainNavbar">
+          <Container>
+            <Navbar.Brand href="#myflix">My Flix</Navbar.Brand>
+            <Nav className="me-auto">
+              
+              <Nav.Link href="#logout">Logout</Nav.Link>
+            </Nav>
+          </Container>
+        </Navbar>
+
+        <Container fluid className= "RegForm">
             <Card>
               <Card.Body>
                 <Card.Title> Please Register </Card.Title>
@@ -48,17 +56,28 @@ export function RegistrationView(props) {
                     <Form.Group controlId="formBirthday">
                         <Form.Label>Birthday:</Form.Label>
                         <Form.Control type="Date" onChange={e => setPassword(e.target.value)} placeholder="Enter Birthday" />
-                    </Form.Group>
-
-                    <Button variant="outline-dark" type="submit" onClick={handleSubmit}>Submit </Button>
+                    </Form.Group> <br>
+                    </br>
+                    <Button variant="secondary" type="submit" onClick={handleSubmit}>Submit </Button>
                 </form>
               </Card.Body>
             </Card>
-          </CardGroup>
-        </Col>
-      </Row>
-    </Container>
-  );
+        </Container>
+        <div>
+          <Navbar expand="xl" bg="#5a8aa0" className="RevNavbar">
+            <Container>
+              <Navbar.Brand >Copyright@2022</Navbar.Brand>
+              <Nav className="me-auto">
+              <Nav.Link href="#"></Nav.Link>
+              </Nav>
+            </Container>
+          </Navbar>
+            
+        </div>
+    </div>
+
+  );  
+  
 }
 
 RegistrationView.propTypes = {
