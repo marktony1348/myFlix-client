@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import axios from 'axios';
 
 // react bootstrap ui
 import { Form, Button, Container, Card, Navbar, Nav } from 'react-bootstrap';
@@ -14,8 +15,21 @@ export function LoginView(props) {
         e.preventDefault();
         console.log(username, password);
         /* Send a request to the server for authentication */
-        /* then call props.onLoggedIn(username) */
-        props.onLoggedIn(username);
+        axios.post('https://marcotony-13489.herokuapp.com/login', {
+            Username: username,
+            Password: password
+        })
+        .then(response => {
+            const data = response.data;
+            props.onLoggedIn(data);
+        })
+        .catch(e => {
+            console.log('user not found')
+        });
+  
+        // /* Send a request to the server for authentication */
+        // /* then call props.onLoggedIn(username) */
+        // props.onLoggedIn(username);
     };
 
     return (

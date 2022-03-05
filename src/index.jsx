@@ -1,5 +1,5 @@
 import React from 'react';
-import axios from 'axios';
+// import axios from 'axios';
 import PropTypes from 'prop-types';
 
 import ReactDOM from 'react-dom';
@@ -23,7 +23,9 @@ class MyFlixApplication extends React.Component {
         return (
             
             <Container>
+                
                 <MainView />
+                
                 
 
                
