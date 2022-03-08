@@ -1,5 +1,5 @@
 import React from 'react';
-// import axios from 'axios';
+import axios from 'axios';
 import PropTypes from 'prop-types';
 
 import ReactDOM from 'react-dom';
@@ -11,7 +11,6 @@ import Container from 'react-bootstrap/Container';
 
 
 // Import statement to indicate that you need to bundle `./index.scss`
-
 import './index.scss';
 
 
@@ -21,14 +20,11 @@ class MyFlixApplication extends React.Component {
     render() {
 
         return (
+            <Navbar></Navbar>,
             
             <Container>
                 
                 <MainView />
-                
-                
-
-               
             </Container>
         );
 

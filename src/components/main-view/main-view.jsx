@@ -1,20 +1,24 @@
 import React from 'react';
+// for state based routing
+import { BrowserRouter as Router,  Routes, Route, Redirect } from "react-router-dom";
 import axios from 'axios';
 
-
+import { Link } from 'react-router-dom';
 
 // react bootstrap ui with universal container
-import { Navbar, Nav, Container, Row, Col } from 'react-bootstrap';
+import { Row, Col } from 'react-bootstrap';
 
-import './main-view.scss';
-
-
+// navbar import
+import { Navbar } from '../navbar/navbar';
 
 
 import { LoginView } from '../login-view/login-view';
-import { RegistrationView } from '../registration-view/registration-view';
 import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
+import { ProfileView } from '../profile-view/profile-view';
+import { GenreView } from '../genre-view/genre-view';
+import { DirectorView } from '../director-view/director-view';
+import { RegistrationView } from '../registration-view/registration-view';
 
 
 
@@ -27,22 +31,23 @@ export class MainView extends React.Component {
 
             // state @ null
             movies: [],
-            selectedMovie: null,
+            // selectedMovie: null,
             user: null
         };
     }
+   
+    // updated to persisted authentification
+    componentDidMount() {
+        let accessToken = localStorage.getItem('token');
+        if (accessToken !== null) {
+          this.setState({
+            user: localStorage.getItem('user')
+          });
+          this.getMovies(accessToken);
+        }
+      }
 
-    // componentDidMount(){
-    //     axios.get('https://marcotony-13489.herokuapp.com/movies')
-    //       .then(response => {
-    //         this.setState({
-    //           movies: response.data
-    //         });
-    //       })
-    //       .catch(error => {
-    //         console.log(error);
-    //       });
-    // }
+    
 
     getMovies(token) {
         axios.get('https://marcotony-13489.herokuapp.com/movies', {
@@ -58,19 +63,8 @@ export class MainView extends React.Component {
           console.log(error);
         });
       }
-
-    setSelectedMovie(movie) {
-        this.setState({
-            selectedMovie: movie
-        });
-    }
-
-    onRegistration(register) {
-        this.setState({
-            register,
-        });
-    }
-
+      
+    /* When a user successfully logs in, this function updates the `user` property in state to that *particular user*/
     onLoggedIn(authData) {
         console.log(authData);
         this.setState({
@@ -80,71 +74,136 @@ export class MainView extends React.Component {
         localStorage.setItem('token', authData.token);
         localStorage.setItem('user', authData.user.Username);
         this.getMovies(authData.token);
-      }
+    }
 
-    /* When a user successfully logs in, this function updates the `user` property in state to that *particular user*/
-    // onLoggedIn(user) {
+    // setSelectedMovie(movie) {
     //     this.setState({
-    //         user
+    //         selectedMovie: movie
     //     });
     // }
 
+    // onRegistration(register) {
+    //     this.setState({
+    //         register,
+    //     });
+    // }
+
+    onLoggedOut() {
+        localStorage.removeItem('token');
+        localStorage.removeItem('user');
+        this.setState({
+          user: null
+        });
+    }
+
+   
+
     render() {
-        const { user, register, movies, selectedMovie } = this.state;
+        const { movies, user } = this.state;
 
-        /* If there is no user, the LoginView is rendered. If there is a user logged in, the user details are *passed as a prop to the LoginView*/
-        if (!user) return <LoginView onLoggedIn={user => this.onLoggedIn(user)} />;
+        if (!user) return <Row>
+        <Col>
+            <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
+        </Col>
+        </Row>
+        if (movies.length === 0) return <div className="main-view" />;
 
-        if (!register) return (<RegistrationView onRegistration={(register) => this.onRegistration(register)} />);
-
-
-        if (movies.length === 0) return <div className="main-view"/>;
 
         return (
-            <div className="main-view">
-            <Navbar expand="lg" bg="#5a8aa0" className="MainNavbar">
-            <Container>
-            <Navbar.Brand >My Flix</Navbar.Brand>
-                <a href="./components/marktony-svg logo.svg"></a>
-                <Nav className="me-auto">
-                <Nav.Link href="target_{login-view}">Logout</Nav.Link>
-                </Nav>
-            </Container>
-            </Navbar>
-    
-            <Row className="main-view justify-content-md-center">
-            {selectedMovie
-              ? (
-                <Col md={8}>
-                  <MovieView movie={selectedMovie} onBackClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); }} />
-                </Col>
-              )
-              : movies.map((movie) => (
-                <Col md={3} key={movie._id}>
-                  <MovieCard
-                    movie={movie}
-                    onMovieClick={(newSelectedMovie) => {
-                      this.setSelectedMovie(newSelectedMovie);
-                    }}
-                  />
-                </Col>
-              ))        
-            }
-            </Row>
-            <div>
-              <Navbar expand="xl" bg="#5a8aa0" className="MainNavbar2">
-              <Container>
-                  <Navbar.Brand >Copyright@2022</Navbar.Brand>
-                  <Nav className="me-auto">
-                  <Nav.Link href="#"></Nav.Link>
-                  </Nav>
+            <Router>
+                {/* <Navbar expand="lg" bg="#5a8aa0" className="MainNavbar">
+                <Container>
+                <Navbar.Brand >My Flix</Navbar.Brand>
+                    <Nav className="me-auto">
+                    <button variant="primary" onClick={() => { this.onLoggedOut() }}>Logout</button>
+                    </Nav>
                 </Container>
-              </Navbar>
+                </Navbar> */}
+
+                    <Navbar />
+                    <Row className="main-view justify-content-md-center">
+                        <Route exact path="/" render={() => {
+                            if (!user) return 
+                                <Col>
+                                  <LoginView  onLoggedIn={user => this.onLoggedIn(user)} />
+                                </Col>
+
+                            if (movies.length === 0) return <div className="main-view" />;
+
+                            return movies.map(m => (
+                            <Col md={3} key={m._id}>
+                                <MovieCard movie={m} />
+                            </Col>
+                            ))
+                        }} ></Route>
+
+                        <Route path="/register" render={() => {
+                                if (user) return <Redirect to="/" />
+                                return <Col>
+                                    <RegistrationView />
+                                </Col>
+                        }} />
+
+                        <Route path="/movies/:movieId" render={({ match, history }) => {
+                            if (!user) return 
+                                <Col>
+                                    <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
+                                </Col>
+
+                            if (movies.length === 0) return <div className="main-view" />;
+
+                            return <Col md={8}>
+                            <MovieView movie={movies.find(m => m._id === match.params.movieId)} onBackClick={() => history.goBack()} />
+                            </Col>
+                        }} />
+
+                        <Route path="/genres/:name" render={({ match, history }) => {
+                            if (!user) return <Col>
+                                <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
+                            </Col>
+                            if (movies.length === 0) return <div className="main-view" />;
+                            return <Col md={8}>
+                                <GenreView genre={movies.find(m => m.Genre.Name === match.params.name).Genre} onBackClick={() => history.goBack()} />
+                            </Col>
+                        }} /> 
+
+                        <Route path="/directors/:name" render={({ match, history }) => {
+
+                            if (!user ) return 
+                                <Col>
+                                    <LoginView onLoggedIn={ (user) => this.onLoggedIn(user) } />
+                                </Col>
+                                
+                            if (movies.length === 0) return <div className="main-view" />;
+                            return <Col md={8}>
+                                <DirectorView director={movies.find(m => m.Director.Name === match.params.name).Director} onBackClick={() => history.goBack()} />
+                            </Col>
+                        }} />
+
+                        <Route path="/users/:username" render={({ match, history }) => {
+                            if (!user) return <Col>
+                                <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
+                            </Col>
+                            if (movies.length === 0) return <div className="main-view" />;
+                            return <Col md={8}>
+                                <ProfileView user={movies.find(m => m.username === match.params.username)} onBackClick={() => history.goBack()} />
+                            </Col>
+                        }} />
+                    </Row>
                 
-            </div>
-          </div>
+                {/* <div>
+                    <Navbar expand="xl" bg="#5a8aa0" className="MainNavbar2">
+                        <Container>
+                            <Navbar.Brand >Copyright@2022</Navbar.Brand>
+                            <Nav className="me-auto">
+                            <Nav.Link href="#"></Nav.Link>
+                            </Nav>
+                        </Container>
+                    </Navbar> 
+                </div> */}
+            </Router>
          
         );    
-      }     
+    }     
 
 }
