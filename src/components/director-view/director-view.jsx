@@ -1,14 +1,14 @@
 import React from 'react';
 import axios from 'axios';
 import PropTypes from 'prop-types';
-// import './director-view.scss';
+import './director-view.scss';
 import { Link } from 'react-router-dom';
 import { Container, Card, Button } from 'react-bootstrap';
 
 export class DirectorView extends React.Component {
 
     render() {
-        const { Director, onBackClick } = this.props;
+        const { Director, onBackClick} = this.props;
 
         return (
             <Container fluid>
@@ -46,5 +46,7 @@ DirectorView.proptypes = {
         Bio: PropTypes.string,
         Birth: PropTypes.string,
         Death: PropTypes.string,
+        
     }).isRequired,
 };
+

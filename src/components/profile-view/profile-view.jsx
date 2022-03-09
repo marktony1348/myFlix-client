@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import PropTypes from 'prop-types';
-// import './profile-view.scss';
+import './profile-view.scss';
 import { Link } from 'react-router-dom';
 import { Container, Card, Button, Row, Col, Form } from 'react-bootstrap';
 

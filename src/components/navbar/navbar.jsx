@@ -36,3 +36,5 @@ export function Menubar(user) {
         </Navbar>
     );
 }
+
+// export default Navbar;

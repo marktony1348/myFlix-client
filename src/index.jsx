@@ -20,7 +20,7 @@ class MyFlixApplication extends React.Component {
     render() {
 
         return (
-            <Navbar></Navbar>,
+            
             
             <Container>
                 

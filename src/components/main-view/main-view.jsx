@@ -1,15 +1,16 @@
 import React from 'react';
 // for state based routing
-import { BrowserRouter as Router,  Routes, Route, Redirect } from "react-router-dom";
+import { BrowserRouter as Router,  Routes, Route, Redirect } from 'react-router-dom';
 import axios from 'axios';
 
+// navbar import
+import { Navbar } from '../navbar/navbar';
 import { Link } from 'react-router-dom';
 
 // react bootstrap ui with universal container
 import { Row, Col } from 'react-bootstrap';
 
-// navbar import
-import { Navbar } from '../navbar/navbar';
+
 
 
 import { LoginView } from '../login-view/login-view';
@@ -106,7 +107,7 @@ export class MainView extends React.Component {
             <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
         </Col>
         </Row>
-        if (movies.length === 0) return <div className="main-view" />;
+        if (movies.length === 0) return <div className='main-view' />;
 
 
         return (
@@ -120,7 +121,7 @@ export class MainView extends React.Component {
                 </Container>
                 </Navbar> */}
 
-                    <Navbar />
+                  
                     <Row className="main-view justify-content-md-center">
                         <Route exact path="/" render={() => {
                             if (!user) return 

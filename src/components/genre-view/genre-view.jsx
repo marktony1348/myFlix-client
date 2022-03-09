@@ -24,7 +24,7 @@ export class GenreView extends React.Component {
                     </div>
 
                     <div className="backButton">
-                        <Button variant="outline-light" onClick={() => { onBackClick(null); }}>Back</Button>
+                        <Button variant="outline-dark" onClick={() => { onBackClick(null); }}>Back</Button>
                     </div>
                 </Card>
             </Container>
@@ -36,5 +36,6 @@ GenreView.proptypes = {
     Genre: PropTypes.shape({
         Name: PropTypes.string.isRequired,
         Description: PropTypes.string.isRequired,
+        
     }).isRequired,
 };

@@ -5,7 +5,7 @@ import './movie-view.scss';
 
 import { Link } from 'react-router-dom';
 // react bootstrap ui
-import { Container, Row, Col, Button } from 'react-bootstrap';
+import { Container, Row, Col, Button, Card } from 'react-bootstrap';
 
 export class MovieView extends React.Component {
 
@@ -26,7 +26,8 @@ export class MovieView extends React.Component {
 
         return (
             <Container>
-                <Row>
+                <Card>    
+                    <Row>
                     <Col>
                         <div className="movie-view">
                             <div className="movie-poster"> <br>
@@ -64,7 +65,7 @@ export class MovieView extends React.Component {
                         </div>          
                     </Col>
                 </Row>
-
+                </Card>
             </Container>
         );
     }
