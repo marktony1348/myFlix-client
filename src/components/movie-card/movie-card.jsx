@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 // react bootstrap ui
-import { Card, Button } from 'react-bootstrap';
+import { Card, Button, Container } from 'react-bootstrap';
 
 import { Link } from "react-router-dom";
 
@@ -13,16 +13,19 @@ export class MovieCard extends React.Component {
     const { movie } = this.props;
 
     return (
+      <Container fluid>
       <Card>
         <Card.Img variant="top" src={""} />
         <Card.Body>
           <Card.Title>{movie.Title}</Card.Title>
           <Card.Text>{movie.Description}</Card.Text>
           <Link to={`/movies/${movie._id}`}>
-            <Button variant="link">Open</Button>
+            <Button variant="secondary">Open</Button>
           </Link>
         </Card.Body>
       </Card>
+      </Container>
+ 
     );
   }
 }

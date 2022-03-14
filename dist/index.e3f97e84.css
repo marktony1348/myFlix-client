@@ -33,4 +33,25 @@
 
 
 
+.main-view {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+  font-family: "Montserrat", sans-serif;
+  font-size: medium;
+  box-sizing: border-box;
+}
+
+.MainNavbar {
+  background-color: #5a8aa0;
+  color: #ffffff;
+}
+
+.MainNavbar2 {
+  background-color: #5a8aa0;
+  position: relative;
+  bottom: -450px;
+}
+
 /*# sourceMappingURL=index.e3f97e84.css.map */

@@ -25,14 +25,14 @@ export class MovieView extends React.Component {
         const { movie, onBackClick } = this.props;
 
         return (
-            <Container>
+            <Container fluid>
                 <Card>    
                     <Row>
                     <Col>
                         <div className="movie-view">
                             <div className="movie-poster"> <br>
                             </br>
-                                <img src={"https://via.placeholder.com/250C/Ohttps://placeholder.com/"}/> 
+                                <img src={"https://via.placeholder.com/100C/Ohttps://placeholder.com/"}/> 
                             </div> <br>
                             </br>
                             <div className="movie-title">

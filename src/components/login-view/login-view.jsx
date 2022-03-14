@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom';
 import { Form, Button, Container, Card } from 'react-bootstrap';
 
 import './login-view.scss';
+import { RegistrationView } from '../registration-view/registration-view';
 
 export function LoginView(props) {
     const [ username, setUsername ] = useState('');
@@ -90,6 +91,7 @@ const validate = () => {
                         </Form.Group> <br>
                         </br>
                         <Button variant="secondary" type="submit" onClick={handleSubmit}>Submit </Button>
+                        
                     </form>
                 </Card.Body>
             </Card>
