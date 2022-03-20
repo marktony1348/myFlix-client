@@ -1,35 +1,3 @@
-.loginContainer {
-  display: grid;
-  justify-content: center;
-  align-items: center;
-  height: 50vh;
-  font-family: "Montserrat", sans-serif;
-  font-size: medium;
-  box-sizing: border-box;
-}
-
-.loginNavbar {
-  background-color: #5a8aa0;
-  position: relative;
-  bottom: -450px;
-}
-
-
-.RegForm {
-  display: grid;
-  justify-content: center;
-  align-items: center;
-  height: 50vh;
-  font-family: "Montserrat", sans-serif;
-  font-size: medium;
-  box-sizing: border-box;
-}
-
-.RevNavbar {
-  background-color: #5a8aa0;
-  position: relative;
-  bottom: -450px;
-}
 .main-view {
   display: grid;
   justify-content: center;
@@ -50,8 +18,40 @@
   position: relative;
   bottom: -450px;
 }
+.loginContainer {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+  font-family: "Montserrat", sans-serif;
+  font-size: medium;
+  box-sizing: border-box;
+}
+
+.loginNavbar {
+  background-color: #5a8aa0;
+  position: relative;
+  bottom: -450px;
+}
+.RegForm {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+  font-family: "Montserrat", sans-serif;
+  font-size: medium;
+  box-sizing: border-box;
+}
+
+.RevNavbar {
+  background-color: #5a8aa0;
+  position: relative;
+  bottom: -450px;
+}
 
 
 
 
-/*# sourceMappingURL=index.27d8da6b.css.map */
+
+
+/*# sourceMappingURL=index.2b25e0b4.css.map */

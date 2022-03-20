@@ -1,35 +1,33 @@
 import React from 'react';
+// import axios from 'axios';
 import PropTypes from 'prop-types';
 
 // react bootstrap ui
-import { Card, Button, Container } from 'react-bootstrap';
-
-import { Link } from "react-router-dom";
+import { Card, Button } from 'react-bootstrap';
 
 import './movie-card.scss';
+
+import { Link } from "react-router-dom";
 
 export class MovieCard extends React.Component {
   render() {
     const { movie } = this.props;
-
     return (
-      <Container fluid>
       <Card>
         <Card.Img variant="top" src={""} />
         <Card.Body>
           <Card.Title>{movie.Title}</Card.Title>
           <Card.Text>{movie.Description}</Card.Text>
+
           <Link to={`/movies/${movie._id}`}>
             <Button variant="secondary">Open</Button>
           </Link>
+         
         </Card.Body>
       </Card>
-      </Container>
- 
     );
   }
 }
-
 MovieCard.propTypes = {
     movie: PropTypes.shape({
       Title: PropTypes.string.isRequired,
@@ -44,8 +42,7 @@ MovieCard.propTypes = {
       //   Birth: PropTypes.date,
       //   Death: PropTypes.date
       // }),
-
       }).isRequired,
-    
+
       // onMovieClick: PropTypes.func.isRequired
 };
