@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
+import { NavbarView } from "../navbar-view/navbar-view";
 
+
+import { Link } from "react-router-dom";
 // react bootstrap ui
-import { Form, Button, Container } from 'react-bootstrap';
+import { Form, Container, Col, Row, Button, Navbar, Card, CardGroup } from "react-bootstrap";
 import './login-view.scss';
 export function LoginView(props) {
     const [ username, setUsername ] = useState('');
@@ -51,29 +54,47 @@ export function LoginView(props) {
           });
         }
       };
-
-    return (
+      return (
         
-          <Form>
-            <Form.Group controlId="formUsername">
-                <Form.Label>Username:</Form.Label>
-                <Form.Control type="text" placeholder="Enter username" value={username} onChange={e => setUsername(e.target.value)} />
-                {/* code added here to display validation error */}
-                {usernameErr && <p>{usernameErr}</p>}
-        </Form.Group>
-
-            <Form.Group controlId="formPassword">
-                <Form.Label>Password</Form.Label>
-                <Form.Control type="password" placeholder="Password" value={password} onChange={e => setPassword(e.target.value)} />
-                {/* code added here to display validation error */}
-                {passwordErr && <p>{passwordErr}</p>}
-        </Form.Group>
-            <Button variant="primary" type="submit" onClick={handleSubmit}>
-                Submit
-                </Button>
-        </Form>
-      );   
-}
+        <Container  className="login-view" align="center">
+            <NavbarView />
+            <Col>
+              <CardGroup className= "loginf">
+              <Card className="card">
+                  <Card.Body>
+                    <Card.Title className="text-center">Welcome to myFlixCinerverse!</Card.Title>
+                     <Card.Subtitle className="mb-2 text-muted text-center">Please Login</Card.Subtitle>
+                      
+                <Form>
+                <Form.Group className="mb-3 text-left"  controlId="formUsername">
+                  <Form.Label>Username</Form.Label>
+                  <Form.Control type="text" onChange={e => setUsername(e.target.value)} placeholder="Enter username" />
+                  {/* code added here to display validation error */}
+                  {usernameErr && <p>{usernameErr}</p>}
+                </Form.Group>
+  
+                  <Form.Group className="mb-3 text-left" controlId="formPassword">
+                    <Form.Label>Password</Form.Label>
+                    <Form.Control type="password"  onChange={e => setPassword(e.target.value)} placeholder="Password" />
+                     {/* code added here to display validation error */}
+                    {passwordErr && <p>{passwordErr}</p>}     
+                  </Form.Group>
+  
+                  <div className="mt-3">
+                  <Button variant="secondary" type="submit" onClick={handleSubmit}>Login</Button>
+  
+                      </div>
+                      </Form>
+                      </Card.Body>
+                      </Card>
+                      </CardGroup>
+                      </Col>
+                      {/* </Row> */}
+                      </Container>       
+  
+            );
+          }
+    
 LoginView.propTypes = {
     user: PropTypes.shape({
         username: PropTypes.string.isRequired,

@@ -1,18 +1,16 @@
-.loginContainer {
-    display: grid;
-    justify-content: center;
-    align-items: center;
-    height: 50vh;
+* {
     font-family: 'Montserrat', sans-serif;
-    font-size: medium;
+    padding: 2px;
     box-sizing: border-box;
-
-}
-
-.loginNavbar {
-    background-color: #5a8aa0;
-    position: relative;
-    bottom: -450px;
     
+  }
+
+.loginf {
+    width: 450px;
+    height: auto;
+    border-radius: 10px;
+    padding: 20px 30px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px 0 0000;
     
-}
+}  

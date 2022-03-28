@@ -8,7 +8,7 @@ import { Container, Card, Button } from 'react-bootstrap';
 export class DirectorView extends React.Component {
 
     render() {
-        const { Director, onBackClick } = this.props;
+        const { movie, director, onBackClick } = this.props;
 
         return (
             <Container fluid>
@@ -16,19 +16,19 @@ export class DirectorView extends React.Component {
                     <Card.Title>Director</Card.Title>
                     <div>
                         <span className="label">Name: </span>
-                        <span className="value">{Director.Name}</span>
+                        <span className="value">{director.Name}</span>
                     </div>
                     <div>
                         <span className="label">Bio: </span>
-                        <span className="value">{Director.Bio}</span>
+                        <span className="value">{director.Bio}</span>
                     </div>
                     <div>
                         <span className="label">Birth: </span>
-                        <span className="value">{Director.Birth}</span>
+                        <span className="value">{director.Birth}</span>
                     </div>
                     <div>
                         <span className="label">Death: </span>
-                        <span className="value">{Director.Death}</span>
+                        <span className="value">{director.Death}</span>
                     </div>
 
                     <div className="backButton">

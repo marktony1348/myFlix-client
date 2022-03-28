@@ -19,6 +19,8 @@ export function RegistrationView(props) {
   const [ usernameErr, setUsernameErr ] = useState('');
   const [ passwordErr, setPasswordErr ] = useState('');
   const [ emailErr, setEmailErr ] = useState('');
+  const [ birthdayErr, setBirthdayErr ] = useState('');
+
 
   
   
@@ -111,7 +113,7 @@ const handleSubmit = (e) => {
                     </br>
                     <Button variant="secondary" type="submit" onClick={handleSubmit}>Submit </Button>
                     <p></p>
-                    {/* <p>Already registered<link to={'/'}>sign in</link>here</p> */}
+                    <p>Already registered<link to={'/'}>sign in</link>here</p>
                 </Form>
               </Col>
         </Row>
@@ -124,6 +126,7 @@ RegistrationView.propTypes = {
       Username: PropTypes.string.isRequired,
       Password: PropTypes.string.isRequired,
       Email: PropTypes.string.isRequired,
+      Birthday: PropTypes.string.isRequired,
   }),
 onRegistration: PropTypes.func.isRequired,
 };
