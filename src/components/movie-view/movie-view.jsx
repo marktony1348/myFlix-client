@@ -23,6 +23,7 @@ export class MovieView extends React.Component {
 
     render() {
         const { movie, onBackClick } = this.props;
+        
 
         return (
             <Container fluid>
@@ -32,7 +33,7 @@ export class MovieView extends React.Component {
                         <div className="movie-view">
                             <div className="movie-poster"> <br>
                             </br>
-                                <img src={""}/> 
+                                <img src={"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTeA9D122tf9anS8BrCrKvEMfPpPiFVzAFGiw&usqp=CAU"}/> 
                             </div> <br>
                             </br>
                             <div className="movie-title">
@@ -88,11 +89,11 @@ export class MovieView extends React.Component {
 //             Birth: PropTypes.date,
 //             Death: propTypes.date
 //         }),
-//         Actors: PropTypes.array,
+//         // Actors: PropTypes.array,
 //         Featured: PropTypes.bool,
 //         ImagePath: PropTypes.string.isRequired
 //     }).isRequired,
 
-//     onMovieClick: PropTypes.func.isRequired
+//     onBackClick: PropTypes.func.isRequired
 
 // };

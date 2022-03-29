@@ -1,39 +1,38 @@
 
 
+
+
 * {
-  font-family: "Montserrat", sans-serif;
+  box-sizing: border-box;
+  color: #000;
+  background-color: #b2beb5;
   padding: 2px;
-  box-sizing: border-box;
-}
-.RegForm {
-  display: grid;
-  justify-content: center;
-  align-items: center;
-  height: 50vh;
-  font-family: "Montserrat", sans-serif;
-  font-size: medium;
-  box-sizing: border-box;
+  font-family: Montserrat, sans-serif;
 }
 
-.RevNavbar {
-  background-color: #5a8aa0;
-  position: relative;
-  bottom: -450px;
-}
 * {
-  font-family: "Montserrat", sans-serif;
-  padding: 2px;
   box-sizing: border-box;
+  color: #000;
+  background-color: #b2beb5;
+  padding: 2px;
+  font-family: Montserrat, sans-serif;
 }
 
 .loginf {
   width: 450px;
   height: auto;
-  border-radius: 10px;
-  padding: 20px 30px;
-  border-radius: 5px;
   box-shadow: 0 0 10px 0 0;
+  border-radius: 5px;
+  padding: 20px 30px;
 }
+
+
+
+
+
+
+
+
 
 
 

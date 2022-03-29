@@ -27,7 +27,7 @@ export class GenreView extends React.Component {
 
           <div className="backButton">
             <Button
-              variant="outline-dark"
+              variant="secondary"
               onClick={() => {
                 onBackClick(null);
               }}

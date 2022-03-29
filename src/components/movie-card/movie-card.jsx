@@ -14,7 +14,7 @@ export class MovieCard extends React.Component {
     const { movie } = this.props;
     return (
       <Card>
-        <Card.Img variant="top" src={""} />
+        <Card.Img variant="top" src={"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTeA9D122tf9anS8BrCrKvEMfPpPiFVzAFGiw&usqp=CAU"} />
         <Card.Body>
           <Card.Title>{movie.Title}</Card.Title>
           <Card.Text>{movie.Description}</Card.Text>

@@ -22,11 +22,11 @@ export function NavbarView({ user }) {
     localStorage.clear();
     window.open("/", "_self");
 
-  // onRegistration = (register) => {
-  //   this.setState({
-  //     register,
-  //   });
-  // }
+  onRegistration = (register) => {
+    this.setState({
+      register,
+    });
+  }
 
 };
 
