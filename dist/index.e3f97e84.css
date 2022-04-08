@@ -46,6 +46,10 @@ body {
   background: linear-gradient(to right, pink 0% 50%, #afeeee 50% 100%);
 }
 
+.loginf {
+  width: 350px;
+}
+
 * {
   box-sizing: border-box;
   padding: 2px;
