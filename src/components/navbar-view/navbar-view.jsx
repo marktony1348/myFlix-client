@@ -48,7 +48,7 @@ export function NavbarView({ user }) {
       className="main-nav" sticky="top"bg="secondary"expand="lg" variant="dark" >
       <Container>
         <Navbar.Brand className="navbar-logo" href="/" bg="black">
-          myFlixCineverse
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLxI04fUNJ5wL4qiWQATsL7L7YBNdaIKBEXw&usqp=CAU" height="50" width="50" alt="myFlixCineverse"></img>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">

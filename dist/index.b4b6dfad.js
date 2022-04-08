@@ -35795,7 +35795,16 @@ function NavbarView({ user  }) {
                     className: "navbar-logo",
                     href: "/",
                     bg: "black",
-                    children: "myFlixCineverse"
+                    children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV("img", {
+                        src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLxI04fUNJ5wL4qiWQATsL7L7YBNdaIKBEXw&usqp=CAU",
+                        height: "50",
+                        width: "50",
+                        alt: "myFlixCineverse"
+                    }, void 0, false, {
+                        fileName: "src/components/navbar-view/navbar-view.jsx",
+                        lineNumber: 51,
+                        columnNumber: 11
+                    }, this)
                 }, void 0, false, {
                     fileName: "src/components/navbar-view/navbar-view.jsx",
                     lineNumber: 50,
