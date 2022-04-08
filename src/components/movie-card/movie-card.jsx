@@ -15,7 +15,10 @@ export class MovieCard extends React.Component {
     return (
       <CardGroup>
          <Card >
-        <Card.Img variant="top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTeA9D122tf9anS8BrCrKvEMfPpPiFVzAFGiw&usqp=CAU" />
+           <Link to={`/movies/${movie._id}`}>
+           <Card.Img variant="top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTeA9D122tf9anS8BrCrKvEMfPpPiFVzAFGiw&usqp=CAU"/>
+           </Link>
+        
         <Card.Body>
           <Card.Title>{movie.Title}</Card.Title>
           {/* <Card.Text>{movie.Description}</Card.Text> */}
