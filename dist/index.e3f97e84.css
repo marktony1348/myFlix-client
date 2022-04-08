@@ -1,36 +1,81 @@
+cardGroup {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 100%;
+  margin: auto;
+  position: relative;
+  overflow: hidden;
+}
 
+Body {
+  height: 100vh;
+  background: linear-gradient(to right, pink 0% 50%, #afeeee 50% 100%);
+}
+
+footer {
+  background-color: #f5f5f5;
+}
 
 
 
 * {
   box-sizing: border-box;
-  color: #000;
-  background-color: #b2beb5;
   padding: 2px;
   font-family: Montserrat, sans-serif;
+}
+
+body {
+  height: 100vh;
+  background: linear-gradient(to right, pink 0% 50%, #afeeee 50% 100%);
+}
+
+footer {
+  background-color: #f5f5f5;
 }
 
 * {
   box-sizing: border-box;
-  color: #000;
-  background-color: #b2beb5;
   padding: 2px;
   font-family: Montserrat, sans-serif;
 }
 
-.loginf {
-  width: 450px;
-  height: auto;
-  box-shadow: 0 0 10px 0 0;
-  border-radius: 5px;
-  padding: 20px 30px;
+body {
+  height: 100vh;
+  background: linear-gradient(to right, pink 0% 50%, #afeeee 50% 100%);
 }
 
+* {
+  box-sizing: border-box;
+  padding: 2px;
+  font-family: Montserrat, sans-serif;
+}
 
+body {
+  height: 100vh;
+  background: linear-gradient(to right, pink 0% 50%, #afeeee 50% 100%);
+}
 
+* {
+  box-sizing: border-box;
+  padding: 2px;
+  font-family: Montserrat, sans-serif;
+}
 
+body {
+  height: 100vh;
+  background: linear-gradient(to right, pink 0% 50%, #afeeee 50% 100%);
+}
 
+* {
+  box-sizing: border-box;
+  padding: 2px;
+  font-family: Montserrat, sans-serif;
+}
 
+body {
+  height: 100vh;
+  background: linear-gradient(to right, pink 0% 50%, #afeeee 50% 100%);
+}
 
 
 

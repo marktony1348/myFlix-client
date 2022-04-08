@@ -1,0 +1,24 @@
+cardGroup {
+    position: relative;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin: auto;
+    width: 100%;
+   
+}
+
+Body {
+    height: 100vh;
+    background: linear-gradient(
+      to right,
+     pink 0%,
+     pink 50%,
+     paleturquoise 50%,
+     paleturquoise 100%,
+    );
+  }
+  
+  footer{
+    background-color: whitesmoke;
+  }

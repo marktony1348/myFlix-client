@@ -57,7 +57,7 @@ export function LoginView(props) {
       return (
         
         <Container  className="login-view" align="center">
-            <NavbarView />
+            {/* <NavbarView /> */}
             <Col>
               <CardGroup className= "loginf">
               <Card className="card">

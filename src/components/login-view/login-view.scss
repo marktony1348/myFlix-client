@@ -2,17 +2,18 @@
     font-family: 'Montserrat', sans-serif;
     padding: 2px;
     box-sizing: border-box;
-    background-color: #B2BEB5;
-    color: black;
+    
     
   }
 
-.loginf {
-    width: 450px;
-    height: auto;
-    border-radius: 10px;
-    padding: 20px 30px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px 0 0000;
+  body {
+    height: 100vh;
+    background: linear-gradient(
+      to right,
+     pink 0%,
+     pink 50%,
+     paleturquoise 50%,
+     paleturquoise 100%,
+    );
     
-}  
+  }

@@ -113,7 +113,7 @@ const handleSubmit = (e) => {
                     </br>
                     <Button variant="secondary" type="submit" onClick={handleSubmit}>Submit </Button>
                     <p></p>
-                    <p>Already registered<link to={'/'}>sign in</link>here</p>
+                    <p>Already registered<Link to={'/'}>sign in</Link>here</p>
                 </Form>
               </Col>
         </Row>
@@ -128,5 +128,5 @@ RegistrationView.propTypes = {
       Email: PropTypes.string.isRequired,
       Birthday: PropTypes.string.isRequired,
   }),
-onRegistration: PropTypes.func.isRequired,
+// onRegistration: PropTypes.func.isRequired,
 };

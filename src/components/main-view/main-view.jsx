@@ -1,19 +1,18 @@
 import React from "react";
 import axios from "axios";
 
-import { connect } from 'react-redux';
+import { connect } from "react-redux";
 
 import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
 
-
 // #0
-import { setMovies } from '../../actions/actions';
+import { setMovies } from "../../actions/actions";
 
 // we haven't written this one yet
-import MoviesList from '../movies-list/movies-list';
+import MoviesList from "../movies-list/movies-list";
 
 // react bootstrap ui with universal container
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col, Card } from "react-bootstrap";
 import { NavbarView } from "../navbar-view/navbar-view";
 
 import "./main-view.scss";
@@ -46,15 +45,18 @@ class MainView extends React.Component {
     }
   }
 
+  regist() {
+    console.log("regist");
+  }
+
   getMovies(token) {
     axios
       .get("https://marcotony-13489.herokuapp.com/movies", {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((response) => {
-      // Assign the result to the state
-      this.props.setMovies(response.data);
-       
+        // Assign the result to the state
+        this.props.setMovies(response.data);
       })
       .catch(function (error) {
         console.log(error);
@@ -104,14 +106,14 @@ class MainView extends React.Component {
     let { user } = this.state;
 
     // const { movies, user } = this.state;
-    if (!user)
+    /*  if (!user)
       return (
         <Row>
           <Col>
             <LoginView onLoggedIn={(user) => this.onLoggedIn(user)} />
           </Col>
         </Row>
-      );
+      );*/
     // /* If there is no user, the LoginView is rendered. If there is a user logged in, the user details are *passed as a prop to the LoginView*/
     // // if (!user) return <LoginView onLoggedIn={user => this.onLoggedIn(user)} />;
     // // if (!register) return (<RegistrationView onRegistration={(register) => this.onRegistration(register)} />);
@@ -132,27 +134,11 @@ class MainView extends React.Component {
         <Container>
           <Row className="main-view justify-content-md-center">
             {/* <Routes> */}
-
-            <Route
-              exact
-              path="/"
-              render={() => {
-                if (!user) return;
-                <Col>
-                  <LoginView onLoggedIn={(user) => this.onLoggedIn(user)} />
-                </Col>;
-
-                if (movies.length === 0) return <div className="main-view" />;
-
-               // #6
-              return <MoviesList movies={movies}/>;
-              }}
-            />
-
             <Route
               path="/register"
               render={() => {
-                if (user) return <Redirect to="/" />;
+                // if (user) return <Redirect to="/" />;
+
                 return (
                   <Col>
                     <RegistrationView />
@@ -162,12 +148,32 @@ class MainView extends React.Component {
             />
 
             <Route
+              exact
+              path="/"
+              render={() => {
+                if (!user)
+                  return (
+                    <Col>
+                      <LoginView onLoggedIn={(user) => this.onLoggedIn(user)} />
+                    </Col>
+                  );
+
+                if (movies.length === 0) return <div className="main-view" />;
+
+                // #6
+                return <MoviesList movies={movies} />;
+              }}
+            />
+
+            <Route
               path="/movies/:movieId"
               render={({ match, history }) => {
-                if (!user) return;
-                <Col>
-                  <LoginView onLoggedIn={(user) => this.onLoggedIn(user)} />
-                </Col>;
+                if (!user)
+                  return (
+                    <Col>
+                      <LoginView onLoggedIn={(user) => this.onLoggedIn(user)} />
+                    </Col>
+                  );
 
                 if (movies.length === 0) return <div className="main-view" />;
 
@@ -209,10 +215,12 @@ class MainView extends React.Component {
             <Route
               path="/directors/:name"
               render={({ match, history }) => {
-                if (!user) return;
-                <Col>
-                  <LoginView onLoggedIn={(user) => this.onLoggedIn(user)} />
-                </Col>;
+                if (!user)
+                  return (
+                    <Col>
+                      <LoginView onLoggedIn={(user) => this.onLoggedIn(user)} />
+                    </Col>
+                  );
 
                 if (movies.length === 0) return <div className="main-view" />;
                 return (
@@ -254,16 +262,29 @@ class MainView extends React.Component {
             />
             {/* </Routes> */}
           </Row>
+          <Card>
+            <footer>
+            <p img="">Find me on</p>  
+            <div>
+                <a href="https://twitter.com/home" target="_blank">Twitter</a><br>
+                </br>
+                <a href="https://www.instagram.com/" target="_blank">Instagram</a>
+            </div>        
+          </footer> 
+          </Card>
+          
+          
         </Container>
+        
       </Router>
     );
   }
 }
 
 // #7
-let mapStateToProps = state => {
-  return { movies: state.movies }
-}
+let mapStateToProps = (state) => {
+  return { movies: state.movies };
+};
 
 // #8
-export default connect(mapStateToProps, { setMovies } )(MainView);
+export default connect(mapStateToProps, { setMovies })(MainView);
