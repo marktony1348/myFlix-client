@@ -37,6 +37,7 @@ footer {
 
 * {
   box-sizing: border-box;
+  margin: 0;
   padding: 2px;
   font-family: Montserrat, sans-serif;
 }
@@ -44,10 +45,6 @@ footer {
 body {
   height: 100vh;
   background: linear-gradient(to right, pink 0% 50%, #afeeee 50% 100%);
-}
-
-.loginf {
-  width: 350px;
 }
 
 * {
