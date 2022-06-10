@@ -5,7 +5,9 @@
   "description": "",
   "default": "src/index.html",
   "scripts": {
-    "start": "parcel src/index.html"
+    "start": "parcel src/index.html",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d buildg"
   },
   "repository": {
     "type": "git",
@@ -17,9 +19,10 @@
   "bugs": {
     "url": "https://github.com/marktony1348/myFlix-client/issues"
   },
-  
   "dependencies": {
     "axios": "^0.26.0",
+    "gh": "^2.8.9",
+    "pages": "^0.0.16",
     "prop-types": "^15.8.1",
     "react": "^17.0.2",
     "react-bootstrap": "^2.1.2",
